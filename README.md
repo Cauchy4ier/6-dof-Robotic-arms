@@ -10,7 +10,15 @@ Environment:Ubuntu 14.04 ROS Indigo
   However, no matter you are using Indigo or Kinetic,after you installing the universal robot package, you are very likely to encounter a problem when compiling,called *Action client not connected: PositionJointInterface_trajectory_controller/follow_joint_trajectory.*   
   Any edition in controller.yaml does not help. Actually you are lack of the gazebo-ros-control package. So just run `sudo apt-get install ros-$$$-gazebo-ros-pkgs ros-$$$-gazebo-ros-control` and $$$ is either indigo or kinetic.  
 ## Roll up our sleeves  
-* initiate Gazebo in another terminal
+* initiate Gazebo in another terminal  
 `source /opt/ros/indigo/setup.bash`  
 `roslaunch ur_gazebo ur3.launch limited:=true`  
-If you forget to setup the bash ,you may receive a warning like*No matching hardware interface found for 'hardware_interface/PositionJointInterface*
+If you forget to setup the bash ,you may receive a warning like*No matching hardware interface found for 'hardware_interface/PositionJointInterface*  
+* initiate moveit_planning   
+`roslaunch ur3_moveit_config ur3_moveit_planning_execution.launch sim:=true`    
+* initiate Rviz  
+`roslaunch ur3_moveit_config moveit_rviz.launch config:=true`  
+* move to any specific point you want, like[x,y,z]=[0.4,0.2,0.4]  
+`rosrun ur3_motionplanning movetopoint.py`
+* move the end effector in a circle with a radius of 0.1
+`rosrun ur3_motionplanning circle.py`
