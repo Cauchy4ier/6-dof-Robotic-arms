@@ -24,13 +24,13 @@ If you forget to setup the bash ,you may receive a warning like*No matching hard
 `rosrun ur3_motionplanning circle.py`  
 ## Troubleshooting  
 Like I said at the beginning, I use ROS Kinetic at first instead of Indigo at first and I could not even load the UR model in gazebo and rviz successfully. So basically, this troubleshooting part is for Kinetic users.  
-* Check the version of your Gazebo.   
+* *Check the version of your Gazebo. *  
 gazebo-ros-control is a necessary package , otherwise, you will find the arm_controller node missing if you run rostopic list in your terminal. gazebo-ros-control is only dependent on Gazebo 7.X in Kinetics. I used Gazebo 8 at first and the warning *Action client not connected: PositionJointInterface_trajectory_controller/follow_joint_trajectory.*  kept showing up.  
-* No p gain specified for pid.  
+* *No p gain specified for pid.  *
 Normally we don't have to set the pid parameters by ourselves. If you really want to set the pid parameters for all the six joints, you could build a gazebo_ros_control.yaml and set the pid parameters arbitrarily like p= 100.0, i=0.01, d= 10.0. Watch out, the vibration could be really intense and the joints could get misplaced.  
-* The following packages have unmet dependencies  
+* *The following packages have unmet dependencies  *
 Try to use `sudo apt-get aptitude install --pkg name` and this command will help you install all the dependencies automatically.  
-* Invalid Trajectory: start point deviates from current robot state more than...  
+*  *Invalid Trajectory: start point deviates from current robot state more than...  *
 When you receive any warning like this, it means the noise heavily affects your robotic arm. If you want to close the tolerance checking, you can either run `rosservice call /move_group/trajectory_execution/set_parameters "config: doubles: {name: 'allowed_start_tolerance', value: 0.0}" `mannually or add `rospy.set_param('/move_group/trajectory_execution/allowed_start_tolerance', 0.0)` to your moveit planning execution launch file. To be honest, you cannot generate a trajectory even you close the tolerance checking.  
 ## Future Plan
 I will write controllers for more complex trajectories and learn more about API,OMPL and algorithms like RRT and RRT*. Moreover, ROS is a little bit unstable and I'm working on the controllers for UR arm in ROS2.
