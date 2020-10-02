@@ -9,7 +9,7 @@ Environment:Ubuntu 14.04 ROS Indigo
   Go and check https://github.com/ros-industrial/universal_robot to get urdf,xacro,yaml and all the files you want. Please follow the instructions in http://wiki.ros.org/action/show/universal_robots?action=show&redirect=universal_robot and install all the dependencies. Wiki.ros.org has a comprehensive introduction of how is everything working in the UR package and you would find the solution to your problem after a careful reading(for the most of time).  
   However, no matter you are using Indigo or Kinetic,after you installing the universal robot package, you are very likely to encounter a problem when compiling,called *Action client not connected: PositionJointInterface_trajectory_controller/follow_joint_trajectory.*   
   Any edition in controller.yaml does not help. Actually you are lack of the gazebo-ros-control package. So just run `sudo apt-get install ros-$$$-gazebo-ros-pkgs ros-$$$-gazebo-ros-control` and $$$ is either indigo or kinetic.  
-## Roll up our sleeves
+## Roll up our sleeves  
 * initiate Gazebo in another terminal
 `source /opt/ros/indigo/setup.bash`  
 `roslaunch ur_gazebo ur3.launch limited:=true`  
