@@ -1,4 +1,4 @@
-#Trajectory planning for UR3 robotic arm
+Trajectory planning for UR3 robotic arm
 -----------------------------------
 Author: Junqi Ren (Karl)    
 This package works on trajectory planning in Rviz and Gazebo for the 6 dof UR3 robotic arm. We can move the end effector to any specific point with the script "movetopoint.py" where the path from the initial point to the destination is a straight line. However, we could move the end effector of UR3 not only in lines but also in curves or splines with computing Cartesian path. Running "circle.py" could let the end effector move in a full circle and other splines or polynomials could also work in the same way.  
