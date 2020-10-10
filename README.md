@@ -23,7 +23,7 @@ If you forget to setup the bash ,you may receive a warning like*No matching hard
 * move the end effector in a circle with a radius of 0.1  
 `rosrun ur3_motionplanning circle.py`  
 ## Troubleshooting  
-Like I said at the beginning, I use ROS Kinetic at first instead of Indigo at first and I could not even load the UR model in gazebo and rviz successfully. So basically, this troubleshooting part is for Kinetic users.  
+Like I said at the beginning, I use ROS Kinetic instead of Indigo at first and I could not even load the UR model in gazebo and rviz successfully. So basically, this troubleshooting part is for Kinetic users.  
 *  *Check the version of your Gazebo.*    
 gazebo-ros-control is a necessary package , otherwise, you will find the arm_controller node missing if you run rostopic list in your terminal. gazebo-ros-control is only dependent on Gazebo 7.X in Kinetics. I used Gazebo 8 at first and the warning *Action client not connected: PositionJointInterface_trajectory_controller/follow_joint_trajectory.*  kept showing up.  
 *  *No p gain specified for pid.*    
